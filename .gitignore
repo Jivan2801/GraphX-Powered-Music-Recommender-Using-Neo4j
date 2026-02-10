@@ -1,0 +1,9 @@
+data_raw/
+data_processed/
+neo4j/artists.csv
+neo4j/genres.csv
+neo4j/songs.csv
+neo4j/users.csv
+neo4j/in_genre.csv
+neo4j/listened.csv
+neo4j/performed_by.csv

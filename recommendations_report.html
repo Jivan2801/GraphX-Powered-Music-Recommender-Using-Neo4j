@@ -1,0 +1,452 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Music Recommendations</title>
+        <style>
+            :root {
+                --bg-color: #0f172a;
+                --card-bg: #1e293b;
+                --text-primary: #f8fafc;
+                --text-secondary: #94a3b8;
+                --accent: #38bdf8;
+                --accent-hover: #0ea5e9;
+                --border: #334155;
+            }
+            
+            body {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                background-color: var(--bg-color);
+                color: var(--text-primary);
+                margin: 0;
+                padding: 40px;
+                line-height: 1.6;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            header {
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                font-weight: 700;
+                background: linear-gradient(to right, var(--accent), #818cf8);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 10px;
+            }
+
+            p.subtitle {
+                color: var(--text-secondary);
+                font-size: 1.1rem;
+            }
+
+            .card {
+                background-color: var(--card-bg);
+                border-radius: 16px;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                border: 1px solid var(--border);
+                overflow: hidden;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                text-align: left;
+            }
+
+            th {
+                background-color: rgba(255, 255, 255, 0.05);
+                padding: 16px 24px;
+                font-weight: 600;
+                color: var(--text-secondary);
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                letter-spacing: 0.05em;
+                border-bottom: 1px solid var(--border);
+            }
+
+            td {
+                padding: 16px 24px;
+                border-bottom: 1px solid var(--border);
+            }
+
+            tr:last-child td {
+                border-bottom: none;
+            }
+
+            tr:hover td {
+                background-color: rgba(56, 189, 248, 0.05);
+            }
+
+            .rank {
+                font-family: monospace;
+                color: var(--text-secondary);
+            }
+
+            .score {
+                font-weight: 600;
+                color: var(--accent);
+            }
+
+            .meta {
+                font-size: 0.9rem;
+                color: var(--text-secondary);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Your Music Recommendations</h1>
+                <p class="subtitle">Personalized top picks based on your listening history</p>
+            </header>
+            
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Song / Artist</th>
+                            <th>Genre / Year</th>
+                            <th>Features</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+    
+                        <tr>
+                            <td class="rank">#01</td>
+                            <td>
+                                <div><strong>Song Title 50</strong></div>
+                                <div class="meta">Artist_17</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">2007</div>
+                            </td>
+                            <td class="meta">
+                                CF: 20 | Plays: 206
+                            </td>
+                            <td class="score">0.6358</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#02</td>
+                            <td>
+                                <div><strong>Song Title 179</strong></div>
+                                <div class="meta">Artist_25</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">1991</div>
+                            </td>
+                            <td class="meta">
+                                CF: 25 | Plays: 166
+                            </td>
+                            <td class="score">0.6229</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#03</td>
+                            <td>
+                                <div><strong>Song Title 82</strong></div>
+                                <div class="meta">Artist_32</div>
+                            </td>
+                            <td>
+                                <div>Pop</div>
+                                <div class="meta">2004</div>
+                            </td>
+                            <td class="meta">
+                                CF: 29 | Plays: 123
+                            </td>
+                            <td class="score">0.5486</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#04</td>
+                            <td>
+                                <div><strong>Song Title 200</strong></div>
+                                <div class="meta">Artist_49</div>
+                            </td>
+                            <td>
+                                <div>Electronic</div>
+                                <div class="meta">2013</div>
+                            </td>
+                            <td class="meta">
+                                CF: 14 | Plays: 189
+                            </td>
+                            <td class="score">0.5459</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#05</td>
+                            <td>
+                                <div><strong>Song Title 182</strong></div>
+                                <div class="meta">Artist_31</div>
+                            </td>
+                            <td>
+                                <div>Pop</div>
+                                <div class="meta">2000</div>
+                            </td>
+                            <td class="meta">
+                                CF: 14 | Plays: 169
+                            </td>
+                            <td class="score">0.5131</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#06</td>
+                            <td>
+                                <div><strong>Song Title 37</strong></div>
+                                <div class="meta">Artist_14</div>
+                            </td>
+                            <td>
+                                <div>Jazz</div>
+                                <div class="meta">2004</div>
+                            </td>
+                            <td class="meta">
+                                CF: 23 | Plays: 136
+                            </td>
+                            <td class="score">0.5111</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#07</td>
+                            <td>
+                                <div><strong>Song Title 29</strong></div>
+                                <div class="meta">Artist_5</div>
+                            </td>
+                            <td>
+                                <div>Rock</div>
+                                <div class="meta">2014</div>
+                            </td>
+                            <td class="meta">
+                                CF: 21 | Plays: 145
+                            </td>
+                            <td class="score">0.5065</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#08</td>
+                            <td>
+                                <div><strong>Song Title 93</strong></div>
+                                <div class="meta">Artist_1</div>
+                            </td>
+                            <td>
+                                <div>Jazz</div>
+                                <div class="meta">2013</div>
+                            </td>
+                            <td class="meta">
+                                CF: 26 | Plays: 110
+                            </td>
+                            <td class="score">0.5031</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#09</td>
+                            <td>
+                                <div><strong>Song Title 9</strong></div>
+                                <div class="meta">Artist_22</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">2006</div>
+                            </td>
+                            <td class="meta">
+                                CF: 15 | Plays: 147
+                            </td>
+                            <td class="score">0.4868</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#10</td>
+                            <td>
+                                <div><strong>Song Title 32</strong></div>
+                                <div class="meta">Artist_28</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">2016</div>
+                            </td>
+                            <td class="meta">
+                                CF: 6 | Plays: 195
+                            </td>
+                            <td class="score">0.4815</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#11</td>
+                            <td>
+                                <div><strong>Song Title 176</strong></div>
+                                <div class="meta">Artist_1</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">2011</div>
+                            </td>
+                            <td class="meta">
+                                CF: 13 | Plays: 171
+                            </td>
+                            <td class="score">0.4726</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#12</td>
+                            <td>
+                                <div><strong>Song Title 13</strong></div>
+                                <div class="meta">Artist_14</div>
+                            </td>
+                            <td>
+                                <div>Jazz</div>
+                                <div class="meta">2015</div>
+                            </td>
+                            <td class="meta">
+                                CF: 10 | Plays: 141
+                            </td>
+                            <td class="score">0.4698</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#13</td>
+                            <td>
+                                <div><strong>Song Title 17</strong></div>
+                                <div class="meta">Artist_16</div>
+                            </td>
+                            <td>
+                                <div>Pop</div>
+                                <div class="meta">2005</div>
+                            </td>
+                            <td class="meta">
+                                CF: 16 | Plays: 151
+                            </td>
+                            <td class="score">0.4672</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#14</td>
+                            <td>
+                                <div><strong>Song Title 142</strong></div>
+                                <div class="meta">Artist_3</div>
+                            </td>
+                            <td>
+                                <div>Jazz</div>
+                                <div class="meta">1993</div>
+                            </td>
+                            <td class="meta">
+                                CF: 12 | Plays: 171
+                            </td>
+                            <td class="score">0.4633</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#15</td>
+                            <td>
+                                <div><strong>Song Title 98</strong></div>
+                                <div class="meta">Artist_22</div>
+                            </td>
+                            <td>
+                                <div>Metal</div>
+                                <div class="meta">2022</div>
+                            </td>
+                            <td class="meta">
+                                CF: 22 | Plays: 107
+                            </td>
+                            <td class="score">0.4606</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#16</td>
+                            <td>
+                                <div><strong>Song Title 122</strong></div>
+                                <div class="meta">Artist_50</div>
+                            </td>
+                            <td>
+                                <div>Rock</div>
+                                <div class="meta">2002</div>
+                            </td>
+                            <td class="meta">
+                                CF: 19 | Plays: 110
+                            </td>
+                            <td class="score">0.4296</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#17</td>
+                            <td>
+                                <div><strong>Song Title 183</strong></div>
+                                <div class="meta">Artist_10</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">2020</div>
+                            </td>
+                            <td class="meta">
+                                CF: 15 | Plays: 131
+                            </td>
+                            <td class="score">0.4293</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#18</td>
+                            <td>
+                                <div><strong>Song Title 189</strong></div>
+                                <div class="meta">Artist_6</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">1996</div>
+                            </td>
+                            <td class="meta">
+                                CF: 11 | Plays: 152
+                            </td>
+                            <td class="score">0.4277</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#19</td>
+                            <td>
+                                <div><strong>Song Title 198</strong></div>
+                                <div class="meta">Artist_36</div>
+                            </td>
+                            <td>
+                                <div>Classical</div>
+                                <div class="meta">2008</div>
+                            </td>
+                            <td class="meta">
+                                CF: 15 | Plays: 129
+                            </td>
+                            <td class="score">0.4236</td>
+                        </tr>
+        
+                        <tr>
+                            <td class="rank">#20</td>
+                            <td>
+                                <div><strong>Song Title 36</strong></div>
+                                <div class="meta">Artist_6</div>
+                            </td>
+                            <td>
+                                <div>Pop</div>
+                                <div class="meta">1991</div>
+                            </td>
+                            <td class="meta">
+                                CF: 19 | Plays: 123
+                            </td>
+                            <td class="score">0.4100</td>
+                        </tr>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+    </html>
+    
