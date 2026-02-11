@@ -2,10 +2,10 @@
 
 A small end‑to‑end project that builds a **graph‑based music recommendation system** using:
 
-- Synthetic or real listening history  
-- ETL (Pandas or PySpark)  
-- Graph analysis (popularity, PageRank, co‑listen pairs)  
-- A simple CLI + HTML report for viewing recommendations  
+- Synthetic or real listening history
+- ETL (Pandas or PySpark)
+- Graph analysis (popularity, PageRank, co‑listen pairs)
+- A simple CLI + HTML report for viewing recommendations
 
 This repository is designed to be **easy to run locally** on a laptop (no Hadoop cluster required).
 
@@ -54,10 +54,10 @@ This repository is designed to be **easy to run locally** on a laptop (no Hadoop
 
 ## 3. Requirements
 
-- **Python** 3.8 or higher  
-- **pip** for installing dependencies  
-- **Java 8 or 11** (only if you want to run the Spark‑based scripts)  
-- **Neo4j Desktop** (optional, for graph exploration)  
+- **Python** 3.8 or higher
+- **pip** for installing dependencies
+- **Java 8 or 11** (only if you want to run the Spark‑based scripts)
+- **Neo4j Desktop** (optional, for graph exploration)
 
 Python libraries:
 
@@ -83,7 +83,7 @@ python data_generation_script.py
 
 This creates two CSVs under `data_raw/Million Song Dataset + Spotify + Last/`:
 
-- `Music Info.csv`  
+- `Music Info.csv`
 - `User Listening History.csv`
 
 ### 4.2 Run ETL (Pandas)
@@ -96,13 +96,13 @@ python etl/etl_pandas.py
 
 This populates `data_processed/` with:
 
-- `users/users.csv`  
-- `songs/songs.csv`  
-- `listened/listened.csv`  
-- `artists/artists.csv`  
-- `genres/genres.csv`  
-- `performed_by/performed_by.csv`  
-- `in_genre/in_genre.csv`  
+- `users/users.csv`
+- `songs/songs.csv`
+- `listened/listened.csv`
+- `artists/artists.csv`
+- `genres/genres.csv`
+- `performed_by/performed_by.csv`
+- `in_genre/in_genre.csv`
 
 and prepares `graph_for_spark/listened_edges.csv` and `graph_for_spark/songs.csv` for downstream steps.
 
@@ -116,8 +116,8 @@ python spark/pandas_recs.py
 
 This writes Spark‑style outputs to `data_processed/spark_outputs/`:
 
-- `song_popularity_top1000.csv/part-00000.csv`  
-- `song_pagerank_top1000.csv/part-00000.csv`  
+- `song_popularity_top1000.csv/part-00000.csv`
+- `song_pagerank_top1000.csv/part-00000.csv`
 - `song_co_listen_pairs_top1000.csv/part-00000.csv`
 
 ### 4.4 Generate Recommendations
@@ -159,12 +159,12 @@ and (where supported) opens it in your default browser.
 
 If you want to explore this graph in Neo4j or run additional GDS algorithms:
 
-1. Run the ETL step so that `data_processed/` is populated.  
-2. Copy the relevant CSVs from `data_processed/` into Neo4j’s `import` directory.  
+1. Run the ETL step so that `data_processed/` is populated.
+2. Copy the relevant CSVs from `data_processed/` into Neo4j’s `import` directory.
 3. In Neo4j Browser, execute:
-   - `schema.cypher` to create constraints and indexes  
-   - `load_nodes.cypher` and `load_edges.cypher` to import data  
-4. Optionally run `gds_queries.cypher` for graph algorithms inside Neo4j.  
+   - `schema.cypher` to create constraints and indexes
+   - `load_nodes.cypher` and `load_edges.cypher` to import data
+4. Optionally run `gds_queries.cypher` for graph algorithms inside Neo4j.
 
 ---
 
@@ -172,12 +172,14 @@ If you want to explore this graph in Neo4j or run additional GDS algorithms:
 
 - **`data_raw` missing or empty**  
   Run:
+
   ```bash
   python data_generation_script.py
   ```
 
 - **Spark / Java errors on Windows**  
   Use the Pandas/NetworkX pipeline instead:
+
   ```bash
   python etl/etl_pandas.py
   python spark/pandas_recs.py
@@ -185,18 +187,18 @@ If you want to explore this graph in Neo4j or run additional GDS algorithms:
 
 - **No recommendations produced**  
   Make sure you have run ETL and analysis steps first, and that:
-  - `data_processed/graph_for_spark/listened_edges.csv` exists  
-  - `data_processed/spark_outputs/` contains the three metric folders  
+  - `data_processed/graph_for_spark/listened_edges.csv` exists
+  - `data_processed/spark_outputs/` contains the three metric folders
 
 ---
 
 ## 7. Using This Repo in a Portfolio
 
-- Show the **end‑to‑end pipeline**: data → ETL → graph analysis → recommendations → report.  
+- Show the **end‑to‑end pipeline**: data → ETL → graph analysis → recommendations → report.
 - Highlight:
-  - Use of **graph thinking** (user–song bipartite graph, PageRank, co‑listen).  
-  - Choice of **Pandas/NetworkX** to make a Spark‑style project run easily on a laptop.  
-  - Clear, reproducible commands (Quickstart section above).  
+  - Use of **graph thinking** (user–song bipartite graph, PageRank, co‑listen).
+  - Choice of **Pandas/NetworkX** to make a Spark‑style project run easily on a laptop.
+  - Clear, reproducible commands (Quickstart section above).
 
 You can further customize the scoring weights or the HTML report design to match your personal style.
 
@@ -553,12 +555,14 @@ To explore the graph in Neo4j and run additional algorithms:
 
 - **Missing `data_raw` folder**  
   Run:
+
   ```bash
   python data_generation_script.py
   ```
 
 - **Spark / Java issues on Windows**  
   Use the Pandas/NetworkX pipeline instead:
+
   ```bash
   python etl/etl_pandas.py
   python spark/pandas_recs.py
@@ -596,41 +600,55 @@ A graph-based music recommendation system using data processing (ETL) and graph 
 ## Setup & Run
 
 ### 1. Install Dependencies
+
 ```bash
 pip install pandas pyspark networkx neo4j
 ```
 
 ### 2. Prepare Data
+
 If you do not have the raw dataset, you can generate dummy data for testing:
+
 ```bash
 python data_generation_script.py
 ```
+
 This populates `data_raw/`.
 
 ### 3. Run ETL (Data Processing)
+
 We provide a Pandas-based ETL for easy local setup (bypassing Hadoop requirements):
+
 ```bash
 python etl/etl_pandas.py
 ```
+
 This creates `data_processed/users`, `songs`, `listened`, etc.
 
-*(Original Spark script: `python etl/etl_pyspark.py`)*
+_(Original Spark script: `python etl/etl_pyspark.py`)_
 
 ### 4. Run Analysis (PageRank & Popularity)
+
 Run the analysis script to generate graph metrics (Popularity, PageRank, Co-listen pairs):
+
 ```bash
 python spark/pandas_recs.py
 ```
+
 This creates `data_processed/spark_outputs`.
 
-*(Original Spark script: `python spark/graphframes_recs.py`)*
+_(Original Spark script: `python spark/graphframes_recs.py`)_
 
 ### 5. Generate Recommendations
+
 Run the application to generate recommendations for a specific user (or auto-picked top user):
+
 ```bash
 python app/generate_recs.py --top_k 20
 ```
+
 or for a specific user:
+
 ```bash
 python app/generate_recs.py --user_id <user_id>
 ```
@@ -638,7 +656,9 @@ python app/generate_recs.py --user_id <user_id>
 Output is saved to `data_processed/recs/`.
 
 ## Neo4j Setup (Optional)
+
 To load data into Neo4j:
+
 1.  Start Neo4j Database.
 2.  Copy CSVs from `data_processed/` to the Neo4j `import` folder.
 3.  Run `neo4j/schema.cypher` in Neo4j Browser.
@@ -646,8 +666,8 @@ To load data into Neo4j:
 5.  Run `neo4j/load_edges.cypher`.
 
 ## troubleshooting
+
 - **Missing `data_raw`**: Run `data_generation_script.py`.
 - **Spark errors on Windows**: Use the provided `etl_pandas.py` and `pandas_recs.py` instead of the Spark variants.
-#   G r a p h X - P o w e r e d - M u s i c - R e c o m m e n d e r - U s i n g - N e o 4 j 
- 
- 
+
+#
