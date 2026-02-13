@@ -21,7 +21,7 @@ These signals are fused into a hybrid scoring model to recommend songs users hav
 ## 🏗 System Architecture
 
 Data → ETL → Graph Construction → Graph Analytics → Hybrid Scoring → Recommendations → HTML Report
-
+![System Architecture](./figures/Graphbasedsysarchi.png)
 ---
 
 ## ✨ Key Features
