@@ -134,4 +134,4 @@ python app/generate_html_report.py
 
 ## 📜 License
 
-Add your preferred open-source license (MIT recommended).
+MIT
